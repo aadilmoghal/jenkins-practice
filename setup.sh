@@ -1,7 +1,5 @@
 #!/bin/bash
 
-if kubectl config view --- cluster: null
-
 echo 'launching cluster'
 eksctl create cluster \
 --name JenkinsCluster \
