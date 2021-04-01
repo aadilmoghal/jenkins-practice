@@ -1,11 +1,19 @@
-pipeline {
-  agent any
-  stages {
-    stage('Run eks') {
-      steps {
-        sh "chmod +x script.sh"
-        sh "script.sh"
-      }
-    }   
-  }
+pipeline{
+        agent any
+        stages{
+            stage('Build Cluster'){
+                steps{
+                    sh ''' #!/bin/bash
+                          bash setup.sh
+                    '''      
+                }
+            }
+            stage('Deploy MySQL Pod'){
+                steps{
+                    sh ''' #!/bin/bash
+                          bash setup-mysql.sh
+                    '''                      
+                }
+            }
+        }
 }
