@@ -13,3 +13,4 @@ eksctl create cluster \
 --ssh-access \
 --ssh-public-key aws-key \
 --managed
+EOF
